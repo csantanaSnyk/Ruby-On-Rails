@@ -26,7 +26,7 @@ jobs:
       run: |
          snyk code test --sarif  > results_code.sarif || true
          snyk-to-html -i results_code.sarif -o results_code.html || true
-         snyk test monitor --all-projects --json | snyk-to-html -o results_sca.html || true
+         snyk monitor --all-projects --json | snyk-to-html -o results_sca.html || true
          snyk iac test . --json | snyk-to-html -o results_iac.html || true
          snyk container test cesarinag/juice-shop:7.17.22 --json | snyk-to-html -o results_container.html || true
       continue-on-error: true
